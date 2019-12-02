@@ -2,6 +2,39 @@
   text-align: center;
 }
 
+#game {
+  background-color: green;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+#player-one, #player-two {
+  display: flex;
+  width: 80%;
+  height: 20%;
+  background: gray;
+  justify-content: space-around;
+  align-items: center;
+}
+#table{
+  width: 40vw;
+  height: 50vh;
+  background-color: darkgoldenrod;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.card{
+  width: 90px;
+  height: 140px;
+  background-color: gainsboro;
+}
+
 .App-logo {
   height: 40vmin;
 }
