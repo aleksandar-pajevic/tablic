@@ -4,12 +4,12 @@ import Card from './card';
 const Player = () => {
     return(
          <div id="player">
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
+            <Card styleName="card-player" />
+            <Card styleName="card-player" />
+            <Card styleName="card-player" />
+            <Card styleName="card-player" />
+            <Card styleName="card-player" />
+            <Card styleName="card-player" />
         </div>
     )
 };

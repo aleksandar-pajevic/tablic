@@ -1,12 +1,13 @@
 import React from 'react';
+import Card from './card';
 
 const Table = () => {
     return(
         <div id="table">
-          <div className="card"></div>
-          <div className="card"></div>
-          <div className="card"></div>
-          <div className="card"></div>
+          <Card styleName="card-table" />
+          <Card styleName="card-table" />
+          <Card styleName="card-table" />
+          <Card styleName="card-table" />
         </div>
 
     )

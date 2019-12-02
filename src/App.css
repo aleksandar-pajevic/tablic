@@ -29,10 +29,18 @@
   justify-content: space-around;
   align-items: center;
 }
-.card{
-  width: 90px;
-  height: 140px;
+.card-player{
+  width: 10%;
+  height: 90%;
   background-color: gainsboro;
+  border: 1px solid ghostwhite;
+}
+.card-table{
+  width: 20%;
+  height: 35%;
+  background-color: gainsboro;
+  border: 1px solid ghostwhite;
+
 }
 
 .App-logo {
