@@ -12,7 +12,7 @@
   justify-content: space-around;
   align-items: center;
 }
-#player-one, #player-two {
+#player {
   display: flex;
   width: 80%;
   height: 20%;
