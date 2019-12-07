@@ -6,22 +6,19 @@ import {useStoreState, useStoreActions} from "easy-peasy";
 const Game = () => {
 
     const deckId = useStoreState(state => state.deckId);
-    const todos = useStoreState(state => state.todos);
-    console.log('~~~~', todos);
-    const fetchTodos = useStoreActions(actions => actions.fetchTodos);
+    const fetchDeckId = useStoreActions(actions => actions.fetchDeckId);
     console.log("deckId:", deckId);
     useEffect(()=>{
-        fetchTodos()
+        fetchDeckId()
         //eslint-disable-next-line
     }, []);
-    console.log("todos:", todos);
 
 
     return(
       <div id="game">
-        <Player deckid={deckId}/>
-        <Table todos={todos} deckid={deckId}/>
-        <Player deckid={deckId}/>
+        <Player />
+        <Table deckid={deckId}/>
+        <Player />
         
       </div>
     )

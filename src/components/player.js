@@ -1,8 +1,7 @@
 import React from 'react';
 import Card from './card';
 
-const Player = (props) => {
-    console.log(props.deckId);
+const Player = () => {
     return(
          <div id="player">
             <Card styleName="card-player" />

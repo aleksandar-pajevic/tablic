@@ -1,8 +1,7 @@
 import React from 'react';
 import Card from './card';
 
-const Table = (props) => {
-  console.log('table props', props.todos);
+const Table = () => {
     return(
         <div id="table">
           <Card styleName="card-table" />

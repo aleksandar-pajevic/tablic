@@ -17,17 +17,17 @@ export default {
   },
 
   // THUNK
-  fetchTodos: thunk(async actions => {
-    const resp = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=5');
-    const todos = await resp.json();
-    actions.addTodos(todos);
+  fetchDeckId: thunk(async actions => {
+    const resp = await fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
+    const deckId = await resp.json();
+    actions.addDeckId(deckId);
   }),
 
   //actions
 
-  addTodos: action((state, todos) => {
-    state.todos = todos;
-  })
+  addDeckId: action((state, deckId) => {
+    state.deckId = deckId.deck_id;
+  }),
 
   // fetchFirstRound: thunk( async actions => {
   //
