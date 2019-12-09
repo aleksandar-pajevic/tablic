@@ -1,15 +1,11 @@
 import React from 'react';
 import Card from './card';
 
-const Player = () => {
+const Player = (props) => {
+  console.log("player props:", props.cards);
     return(
          <div id="player">
-            <Card styleName="card-player" />
-            <Card styleName="card-player" />
-            <Card styleName="card-player" />
-            <Card styleName="card-player" />
-            <Card styleName="card-player" />
-            <Card styleName="card-player" />
+           {props.cards.map(card => <Card styleName="card-player" key={card.code} card={card}> </Card>)}
         </div>
     )
 };

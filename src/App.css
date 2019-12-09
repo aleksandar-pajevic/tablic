@@ -31,18 +31,13 @@
 }
 .card-player{
   width: 10%;
-  height: 90%;
-  background-color: gainsboro;
-  border: 1px solid ghostwhite;
 }
 .card-table{
   width: 20%;
-  height: 35%;
-  background-color: gainsboro;
-  border: 1px solid ghostwhite;
-
 }
-
+img{
+  width: 100%;
+}
 .App-logo {
   height: 40vmin;
 }

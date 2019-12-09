@@ -4,24 +4,31 @@ import Table from './table';
 import {useStoreState, useStoreActions} from "easy-peasy";
 
 const Game = () => {
-
-    const deckId = useStoreState(state => state.deckId);
+    let playerOneHand = useStoreState(state => state.playerOne.hand);
+    let table = useStoreState(state => state.table);
+    let playerTwoHand = useStoreState(state => state.playerTwo.hand);
+    let addFirstRound = useStoreActions(actions => actions.addFirstRound);
+    console.log("PlayerOne from game", playerOneHand);
     const fetchDeckId = useStoreActions(actions => actions.fetchDeckId);
-    console.log("deckId:", deckId);
+
+
+
+
     useEffect(()=>{
-        fetchDeckId()
+        fetchDeckId();
         //eslint-disable-next-line
     }, []);
 
 
+
     return(
-      <div id="game">
-        <Player />
-        <Table deckid={deckId}/>
-        <Player />
+      <div id="game" onDoubleClickCapture={()=>{addFirstRound()}}>
+        <Player cards={playerOneHand}/>
+        <Table cards={table}/>
+        <Player cards={playerTwoHand}/>
         
       </div>
     )
-}
+};
 
 export default Game;

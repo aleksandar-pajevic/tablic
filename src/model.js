@@ -1,10 +1,10 @@
-import {useStoreActions ,thunk, action} from "easy-peasy";
-import axios from "axios";
+import {thunk, action} from "easy-peasy";
+// import axios from "axios";
 
 export default {
   deckId: '12345',
-  todos: [],
-  firstRound: [],
+  cards: [],
+  table:[],
   playerOne: {
     hand: [],
     taken: [],
@@ -21,12 +21,32 @@ export default {
     const resp = await fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
     const deckId = await resp.json();
     actions.addDeckId(deckId);
+    actions.fetchCards(deckId.deck_id);
+  }),
+
+  fetchCards: thunk(async (actions, deckId) => {
+    const resp = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=52`);
+    const cards = await resp.json();
+    actions.addCards(cards);
+  }),
+  setFirstRound: thunk(async (actions) => {
+    actions.addFirstRound();
   }),
 
   //actions
 
   addDeckId: action((state, deckId) => {
     state.deckId = deckId.deck_id;
+  }),
+
+  addCards: action((state, cards) => {
+    state.cards = cards.cards;
+  }),
+
+  addFirstRound: action((state) => {
+    state.playerOne.hand = state.cards.splice(0,6);
+    state.table = state.cards.splice(0,4);
+    state.playerTwo.hand = state.cards.splice(0,6);
   }),
 
   // fetchFirstRound: thunk( async actions => {
