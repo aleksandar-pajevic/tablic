@@ -1,7 +1,9 @@
 import React from 'react';
 
+
 const Card = (props) => {
-    console.log("card props", props);
+  console.log("card props" , props);
+  let clickHandler = props.onclick;
     // const clickHandler = () => {
     //     console.log('cliked on');
     // };

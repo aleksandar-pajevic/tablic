@@ -6,12 +6,22 @@ export default {
   cards: [],
   table:[],
   playerOne: {
+    name: 'Mika',
     hand: [],
+    selected: {
+      player: [],
+      game: []
+    },
     taken: [],
     onMove: true,
   },
   playerTwo: {
+    name: 'Zika',
     hand: [],
+    selected: {
+      player: [],
+      game: []
+    },
     taken: [],
     onMove: false,
   },
@@ -49,6 +59,10 @@ export default {
     state.playerTwo.hand = state.cards.splice(0,6);
   }),
 
+  selectCard: action((state, card) => {
+    state.playerOne.selected.push(card);
+    console.log("selected card is :", card );
+  }),
   // fetchFirstRound: thunk( async actions => {
   //
   //   let res = await axios.get("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");

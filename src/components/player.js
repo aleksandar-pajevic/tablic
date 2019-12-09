@@ -1,11 +1,14 @@
 import React from 'react';
 import Card from './card';
+import {useStoreActions} from "easy-peasy";
 
 const Player = (props) => {
   console.log("player props:", props.cards);
-    return(
+  const selectCard = useStoreActions(actions => actions.selectCard);
+
+  return(
          <div id="player">
-           {props.cards.map(card => <Card styleName="card-player" key={card.code} card={card}> </Card>)}
+           {props.cards.map(card => <Card styleName="card-player"  key={card.code} card={card}> </Card>)}
         </div>
     )
 };
