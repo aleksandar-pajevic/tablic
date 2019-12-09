@@ -38,6 +38,7 @@ export default {
     const resp = await fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=52`);
     const cards = await resp.json();
     actions.addCards(cards);
+    actions.addFirstRound();
   }),
   setFirstRound: thunk(async (actions) => {
     actions.addFirstRound();
@@ -54,6 +55,7 @@ export default {
   }),
 
   addFirstRound: action((state) => {
+    console.log(2222);
     state.playerOne.hand = state.cards.splice(0,6);
     state.table = state.cards.splice(0,4);
     state.playerTwo.hand = state.cards.splice(0,6);

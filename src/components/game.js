@@ -7,10 +7,8 @@ const Game = () => {
     let playerOneHand = useStoreState(state => state.playerOne.hand);
     let table = useStoreState(state => state.table);
     let playerTwoHand = useStoreState(state => state.playerTwo.hand);
-    let addFirstRound = useStoreActions(actions => actions.addFirstRound);
     console.log("PlayerOne from game", playerOneHand);
     const fetchDeckId = useStoreActions(actions => actions.fetchDeckId);
-
 
 
 
@@ -22,7 +20,7 @@ const Game = () => {
 
 
     return(
-      <div id="game" onDoubleClickCapture={()=>{addFirstRound()}}>
+      <div id="game" >
         <Player cards={playerOneHand}/>
         <Table cards={table}/>
         <Player cards={playerTwoHand}/>
