@@ -2,11 +2,12 @@ import React from 'react';
 import Card from './card';
 
 const Player = (props) => {
-  console.log("player props:", props.cards);
+  let player = props.player;
+  console.log("@@@ player props:", player);
 
   return(
          <div id="player">
-           {props.cards.map(card => <Card styleName="card-player"  key={card.code} card={card}> </Card>)}
+            {player.hand.map( card => <Card key={card.code} card={card} styleName="card-player" />)}
         </div>
     )
 };

@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Card = (props) => {
-  console.log("card props" , props);
+  console.log("&&& card props" , props);
     // const clickHandler = () => {
     //     console.log('cliked on');
     // };

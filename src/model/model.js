@@ -5,7 +5,7 @@ export default {
   deckId: '12345',
   cards: [],
   table:[],
-  playerOne: {
+  players: [{
     name: 'Mika',
     hand: [],
     selected: {
@@ -15,7 +15,7 @@ export default {
     taken: [],
     onMove: true,
   },
-  playerTwo: {
+  {
     name: 'Zika',
     hand: [],
     selected: {
@@ -25,6 +25,8 @@ export default {
     taken: [],
     onMove: false,
   },
+],
+
 
   // THUNK
   fetchDeckId: thunk(async actions => {
@@ -56,9 +58,8 @@ export default {
 
   addFirstRound: action((state) => {
     console.log(2222);
-    state.playerOne.hand = state.cards.splice(0,6);
+    state.players.map(player => player.hand.push(state.cards.splice(0,6)));
     state.table = state.cards.splice(0,4);
-    state.playerTwo.hand = state.cards.splice(0,6);
   }),
 
   selectCard: action((state, card) => {

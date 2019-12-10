@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Game from './components/game'
 import {createStore, StoreProvider,} from "easy-peasy";
-import model from "./model";
+import model from "./model/model";
 
 const store = createStore(model);
 

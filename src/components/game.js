@@ -4,10 +4,9 @@ import Table from './table';
 import {useStoreState, useStoreActions} from "easy-peasy";
 
 const Game = () => {
-    let playerOneHand = useStoreState(state => state.playerOne.hand);
+    let players = useStoreState(state => state.players);
+    let cards = useStoreState(state => state.cards);
     let table = useStoreState(state => state.table);
-    let playerTwoHand = useStoreState(state => state.playerTwo.hand);
-    console.log("PlayerOne from game", playerOneHand);
     const fetchDeckId = useStoreActions(actions => actions.fetchDeckId);
 
 
@@ -16,17 +15,19 @@ const Game = () => {
         fetchDeckId();
         //eslint-disable-next-line
     }, []);
+if(cards.length > 0){
+  console.log("players from game", players);
+
+  return(
+
+    <div id="game" >
+      {players.map( player => <Player key={player.name} player={player}/>)}
+      <Table cards={table}/>        
+    </div>
+
+);
+} return (<div id="game">aaaaaa</div>)
 
 
-
-    return(
-      <div id="game" >
-        <Player cards={playerOneHand}/>
-        <Table cards={table}/>
-        <Player cards={playerTwoHand}/>
-        
-      </div>
-    )
-};
-
+}
 export default Game;
