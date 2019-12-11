@@ -1,31 +1,12 @@
 import {thunk, action} from "easy-peasy";
+import playersModel from "./player-model";
 // import axios from "axios";
 
 export default {
   deckId: '12345',
   cards: [],
   table:[],
-  players: [{
-    name: 'Mika',
-    hand: [],
-    selected: {
-      player: [],
-      game: []
-    },
-    taken: [],
-    onMove: true,
-  },
-  {
-    name: 'Zika',
-    hand: [],
-    selected: {
-      player: [],
-      game: []
-    },
-    taken: [],
-    onMove: false,
-  },
-],
+  players: playersModel,
 
 
   // THUNK
@@ -58,13 +39,13 @@ export default {
 
   addFirstRound: action((state) => {
     console.log(2222);
-    state.players.map(player => player.hand.push(state.cards.splice(0,6)));
+    state.players.map(player => player.hand = state.cards.splice(0,6));
     state.table = state.cards.splice(0,4);
   }),
 
   selectCard: action((state, card) => {
-    state.playerOne.selected.push(card);
-    console.log("selected card is :", card );
+    // let active = state.players.find( player => player.hand === card);
+    console.log("active is:", card );
   }),
   // fetchFirstRound: thunk( async actions => {
   //
