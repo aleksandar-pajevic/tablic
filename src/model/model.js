@@ -4,6 +4,7 @@ import playersModel from "./player-model";
 
 export default {
   deckId: '12345',
+  playerMove: 1,
   cards: [],
   table:[],
   players: playersModel,
@@ -101,7 +102,7 @@ export default {
 
 
 
-// axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
+//axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
 //   .then( res => {
 //     axios.get(`https://deckofcardsapi.com/api/deck/${res.data.deck_id}/draw/?count=16`)
 //       .then( res =>{

@@ -22,8 +22,9 @@ if(cards.length > 0){
   return(
 
     <div id="game" >
-      {players.map( (player, index) => <Player key={player.name + index} player={player}/>)}
+      {players.slice(0, 1).map( (player, index) => <Player key={player.name + index} player={player}/>)}
       <Table cards={table}/>
+      {players.slice(1).map( (player, index) => <Player key={player.name + index} player={player}/>)}
     </div>
 
 );
