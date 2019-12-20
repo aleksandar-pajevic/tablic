@@ -4,7 +4,7 @@ import Card from './card';
 const Table = (props) => {
     return(
         <div id="table">
-          {props.cards.map( card => <Card key={card.code} card={card} styleName="card-table" />) }
+          {props.cards.map( card => <Card key={card.code} cardOwner={`table`} card={card} styleName="card-table" />) }
         </div>
 
     )
