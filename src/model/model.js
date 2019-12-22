@@ -9,14 +9,16 @@ export default {
     name: 'Mika',
     hand: [],
     onMove: true,
-    selected:[]
+    selected:[],
+    taken:[]
   },
   playerTwo:{
     id: 2,
     name: 'Zika',
     hand: [],
     onMove: false,
-    selected: []
+    selected: [],
+    taken:[]
   },
   
   // THUNK
@@ -55,7 +57,9 @@ export default {
     // let active = state.players.find( player => player.hand === card);
     console.log(`This is ${props.cardOwner} card`, props.card );
   }),
-
+  takeCards: action((state, card) => {
+    console.log("you took cards", card);
+  }),
 
   };
 

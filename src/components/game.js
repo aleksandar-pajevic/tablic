@@ -22,10 +22,9 @@ if(cards.length > 0){
   return(
 
     <div id="game">
-      <Player player={playerOne} />
-      <Table cards={table}/>
-      <Player player={playerTwo} />
-
+      <Player player={playerOne}/>
+      <Table cards={table} playerOne={playerOne} playerTwo={playerTwo}/>
+      <Player player={playerTwo}/>
     </div>
 
 );

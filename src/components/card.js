@@ -1,21 +1,23 @@
 import React from 'react';
-import {useStoreActions, useStoreState} from "easy-peasy";
+import {useStoreActions} from "easy-peasy";
 
 
 const Card = (props) => {
-  const selectCard = useStoreActions(actions => actions.selectCard);
   console.log("card props", props);
-    // const clickHandler = () => {
+  const selectCard = useStoreActions(actions => actions.selectCard);
+  const takeCards  = useStoreActions(actions => actions.takeCards);
+
+  // const clickHandler = () => {0
     //     console.log('cliked on');
     // };
-  let selectCardProps = {
+  let selectCardParms = {
     card: props.card,
-    cardOwner: props.cardOwner,
-    playerId: props.playerId,
-  };
-let click = props.onMove ? ()=> {selectCard(selectCardProps)} : ()=>{} ;
+    cardOwner: props.cardOwner.id,
+  }
+  let playerClick = props.cardOwner.onMove ? ()=>{selectCard(selectCardParms)} : ()=>{} ;
+  let tableClick = () => {takeCards(props.card)};
   return(
-          <div className={props.styleName} onClick={click} >
+          <div className={props.styleName} onClick={props.cardOwner === 'table' ? tableClick : playerClick} >
               <img src={props.card.image} alt="card-img"/>
           </div>
     )
