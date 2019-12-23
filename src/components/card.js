@@ -11,16 +11,38 @@ const Card = (props) => {
     //     console.log('cliked on');
     // };
   let selectCardParms = {
-    card: props.card,
-    cardOwner: props.cardOwner.id,
-  }
-  let playerClick = props.cardOwner.onMove ? ()=>{selectCard(selectCardParms)} : ()=>{} ;
-  let tableClick = () => {takeCards(props.card)};
-  return(
-          <div className={props.styleName} onClick={props.cardOwner === 'table' ? tableClick : playerClick} >
-              <img src={props.card.image} alt="card-img"/>
-          </div>
+    card: props.tableCard,
+    onMove: props.onMove,
+  };
+  let takeCardsParms = {
+    card: props.playerCard,
+    cardOwner: props.cardOwner,
+  };
+
+  let tableClick =  ()=>{selectCard(selectCardParms)} ;
+  let playerClick = props.cardOwner.onMove ? () => {takeCards(takeCardsParms)} : ()=>{};
+
+  if (props.cardOwner === 'table') {
+    return (
+      <div className={props.styleName} onClick={tableClick} >
+        <img src={props.tableCard.image} alt="card-img"/>
+      </div>
     )
+  }else {
+    return (
+      <div className={props.styleName} onClick={playerClick} >
+        <img src={props.playerCard.image} alt="card-img"/>
+      </div>
+    )
+  }
+// console.log("selectCardParms", selectCardParms);
+//   let tableClick =  ()=>{selectCard(selectCardParms)} ;
+//   let playerClick = props.cardOwner.onMove ? () => {takeCards(props.card)} : ()=>{};
+//   return(
+//           <div className={props.styleName} onClick={props.cardOwner === 'table' ? tableClick : playerClick} >
+//               <img src={props.cardOwner === 'table' ? props.tableCard.image : props.playerCard.image} alt="card-img"/>
+//           </div>
+//     )
 };
 
 export default Card;

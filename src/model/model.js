@@ -53,12 +53,19 @@ export default {
     state.table = state.cards.splice(0,4);
   }),
 
-  selectCard: action((state, props) => {
+  takeCards: action((state, payload) => {
     // let active = state.players.find( player => player.hand === card);
-    console.log(`This is ${props.cardOwner} card`, props.card );
+    console.log(`This is player ${payload.cardOwner.id} card`, payload.card );
+    state.playerOne.onMove ? state.playerOne.onMove = false : state.playerOne.onMove = true;
+    state.playerTwo.onMove ? state.playerTwo.onMove = false : state.playerTwo.onMove = true;
   }),
-  takeCards: action((state, card) => {
-    console.log("you took cards", card);
+  selectCard: action((state, payload) => {
+    console.log(`Player`, payload.onMove.id, 'clicked on', payload.card);
+    if(state.playerOne.selected.findIndex(e => e === payload.card) > -1){ state.playerOne.selected.splice(state.playerOne.selected.findIndex(e => e === payload.card), 1)}else {state.playerOne.selected.push(payload.card)};
+    if(state.playerTwo.selected.findIndex(e => e === payload.card) > -1){ state.playerTwo.selected.splice(state.playerTwo.selected.findIndex(e => e === payload.card), 1)}else {state.playerTwo.selected.push(payload.card)};
+
+    // state.playerOne.onMove ? state.playerOne.selected.push(payload.card) : state.playerTwo.selected.push(payload.card);
+
   }),
 
   };

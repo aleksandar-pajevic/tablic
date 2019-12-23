@@ -7,7 +7,7 @@ const Player = (props) => {
 
   return(
          <div id="player">
-            {player.hand.map( card => <Card key={card.code}  card={card} cardOwner={player}  styleName="card-player" />)}
+            {player.hand.map( card => <Card playerCard={card} cardOwner={player} key={card.code} styleName="card-player" />)}
         </div>
     )
 };
