@@ -3,7 +3,7 @@ import Card from './card';
 
 const Player = (props) => {
   let player = props.player;
-  console.log(player);
+//   console.log(player);
 
   return(
          <div id="player">

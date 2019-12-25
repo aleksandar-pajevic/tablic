@@ -4,8 +4,8 @@ import Table from './table';
 import {useStoreState, useStoreActions} from "easy-peasy";
 
 const Game = () => {
-    let playerOne = useStoreState(state => state.playerOne);
-    let playerTwo = useStoreState(state => state.playerTwo);
+    let playerOne = useStoreState(state => state.players[0]);
+    let playerTwo = useStoreState(state => state.players[1]);
     let cards = useStoreState(state => state.cards);
     let table = useStoreState(state => state.table);
     const fetchDeckId = useStoreActions(actions => actions.fetchDeckId);
@@ -17,7 +17,7 @@ const Game = () => {
         //eslint-disable-next-line
     }, []);
 if(cards.length > 0){
-  console.log("cards from game", cards);
+  // console.log("cards from game", cards);
 
   return(
 

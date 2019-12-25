@@ -1,26 +1,25 @@
 import React from 'react';
-import {useStoreActions} from "easy-peasy";
+import {useStoreActions, useStoreState} from "easy-peasy";
 
 
 const Card = (props) => {
-  console.log("card props", props);
+  // console.log("card props", props);
   const selectCard = useStoreActions(actions => actions.selectCard);
   const takeCards  = useStoreActions(actions => actions.takeCards);
+  const onMove = useStoreState(state => state.playerOnMove);
 
   // const clickHandler = () => {0
     //     console.log('cliked on');
     // };
   let selectCardParms = {
     card: props.tableCard,
-    onMove: props.onMove,
   };
   let takeCardsParms = {
     card: props.playerCard,
-    cardOwner: props.cardOwner,
   };
 
   let tableClick =  ()=>{selectCard(selectCardParms)} ;
-  let playerClick = props.cardOwner.onMove ? () => {takeCards(takeCardsParms)} : ()=>{};
+  let playerClick = props.cardOwner.id === onMove ? () => {takeCards(takeCardsParms)} : ()=>{};
 
   if (props.cardOwner === 'table') {
     return (
