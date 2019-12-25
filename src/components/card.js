@@ -6,7 +6,7 @@ const Card = (props) => {
   // console.log("card props", props);
   const selectCard = useStoreActions(actions => actions.selectCard);
   const takeCards  = useStoreActions(actions => actions.takeCards);
-  const onMove = useStoreState(state => state.playerOnMove);
+  const onMove = useStoreState(state => state.onMove);
 
   // const clickHandler = () => {0
     //     console.log('cliked on');
@@ -19,7 +19,7 @@ const Card = (props) => {
   };
 
   let tableClick =  ()=>{selectCard(selectCardParms)} ;
-  let playerClick = props.cardOwner.id === onMove ? () => {takeCards(takeCardsParms)} : ()=>{};
+  let playerClick = props.cardOwner.id === onMove + 1 ? () => {takeCards(takeCardsParms)} : ()=>{};
 
   if (props.cardOwner === 'table') {
     return (

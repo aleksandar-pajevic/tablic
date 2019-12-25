@@ -23,7 +23,7 @@ if(cards.length > 0){
 
     <div id="game">
       <Player player={playerOne}/>
-      <Table cards={table} playerOne={playerOne} playerTwo={playerTwo}/>
+      <Table cards={table} />
       <Player player={playerTwo}/>
     </div>
 
