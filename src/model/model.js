@@ -61,7 +61,9 @@ export default {
     if (playerOnMove.selected.length < 1){
       state.table.push(payload.card);
       gameLogic.deleteCard(card, playerHand);
-      gameLogic.changeTurn(onMove);
+      state.onMove === 1 ? state.onMove = 0 : state.onMove = 1;
+      //not working - fix it
+      // gameLogic.changeTurn(onMove);
     }else {
     for (let i = 0; i < playerOnMove.selected.length; i++){
       gameLogic.deleteCard(playerOnMove.selected[i], table)
@@ -69,7 +71,9 @@ export default {
     playerOnMove.taken = [...playerOnMove.taken,...playerOnMove.selected, payload.card];
     playerOnMove.selected = [];
     gameLogic.deleteCard(payload.card, playerHand);
-    gameLogic.changeTurn(onMove);
+    state.onMove === 1 ? state.onMove = 0 : state.onMove = 1;
+      //not working - fix it
+    // gameLogic.changeTurn(onMove);
 
     };
 
