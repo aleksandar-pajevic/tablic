@@ -83,7 +83,7 @@ export default {
     let player = state.players[state.onMove];
     let playerSelectedCards = player.selected;
     let card = payload.card;
-
+    // state.table[card] = {...card, active: true};
     if (playerSelectedCards.length === 0) {
       playerSelectedCards.push(card);
     } else {
@@ -94,6 +94,10 @@ export default {
       playerSelectedCards.push(payload.card);
     }
     }
+  }),
+
+  addToTable: action((state, card )=>{
+
   }),
 
 };

@@ -16,10 +16,6 @@ export default {
   },
 changeTurn: (playerOnMove) => {
     console.log(playerOnMove);
-    if (playerOnMove === 1){
-      return playerOnMove = 0;
-    }else {
-     return  playerOnMove = 1;
-    }
+    playerOnMove === 1 ? playerOnMove = 0 : playerOnMove = 1;
 },
 };

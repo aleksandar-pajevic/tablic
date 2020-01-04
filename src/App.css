@@ -35,6 +35,9 @@
 .card-table{
   width: 20%;
 }
+.active{
+  border: 1px solid red;
+}
 img{
   width: 100%;
 }
